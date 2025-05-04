@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monster Hunter World</title>
+  <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+  <link rel="stylesheet" href="tryhackme.css">
+</head>
+<body>
+  <!-- Faint background image -->
+  <div class="main-bg"></div>
+  <div class="container">
+    <header>
+      <h1>Monster Hunter World</h1>
+      <p class="subtitle">
+        <strong>Description:</strong> Monster Hunter: World is a 2018 action role-playing game developed and published by Capcom. The fifth mainline installment in the Monster Hunter series, it was released worldwide for PlayStation 4 and Xbox One in January 2018, with a Windows version following in August 2018.
+      </p>
+    </header>
+
+    <section class="search-section">
+      <form id="searchForm" autocomplete="off">
+        <input type="text" id="searchInput" placeholder="Search the site...">
+        <button type="submit">Search</button>
+      </form>
+      <div id="searchResult"></div>
+    </section>
+
+    <section class="gallery">
+      <h2>Gallery</h2>
+      <div class="posts-row">
+        <div class="img-block">
+          <img src="monster hunter1.jpg" alt="Astera Base">
+          <h3>Astera Base</h3>
+          <p>
+            Astera is built primarily out of wood, some taken from the very ships that brought the Research Commission to the New World. It sits below a waterfall between the Ancient Forest and Wildspire Waste. Astera is more of a base than a village, built to support the Hunters and researchers as they explore the New World and its ecology. It is built in three primary tiers, with winding stairs and a waterwheel-powered series of chain pulleys to move people and supplies quickly.
+          </p>
+        </div>
+        <div class="img-block">
+          <img src="monster hunter2.jpg" alt="Special Arena">
+          <h3>Special Arena</h3>
+          <p>
+            The Special Arena is located within the Great Ravine and features several contraptions that can aid Hunters in battle, including ballistae, cannons, a Dragonator, and a pile of boulders that can be dropped on a monster. Access is via a zipline and a crawl through the rock face, likely to prevent monsters from escaping.
+          </p>
+        </div>
+        <div class="img-block">
+          <img src="monster hunter3.jpg" alt="Ancient Forest">
+          <h3>Ancient Forest</h3>
+          <p>
+            The Ancient Forest is a thick, lush area home to a variety of flora, fauna, and monsters. It can't easily be traversed by normal means and is one of the most iconic locations introduced in Monster Hunter: World.
+          </p>
+        </div>
+        <div class="img-block">
+          <img src="monster hunter4.jpg" alt="Coral Highlands">
+          <h3>Coral Highlands</h3>
+          <p>
+            The Coral Highlands is a vast landscape resembling the ocean floor, filled with many species of coral. Comprised of steep cliffs that form a highland, hunters will traverse the colorful upper areas and ominous lower levels to achieve their objectives.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p><strong>Gmail:</strong> <a href="mailto:monsterhunterworld@gmail.com">monsterhunterworld@gmail.com</a></p>
+      <p><strong>Contact:</strong> +1-234-567-8901</p>
+      <p><strong>About:</strong> We are passionate Monster Hunter fans sharing news, guides, and images for the community!</p>
+    </div>
+  </footer>
+
+  <script>
+    $('#searchForm').submit(function(e) {
+      e.preventDefault();
+      var query = $('#searchInput').val();
+      $('#searchResult').html("You searched for: " + query); // XSS vulnerability
+    });
+  </script>
+</body>
+</html>
